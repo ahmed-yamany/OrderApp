@@ -11,21 +11,32 @@ typealias Category = String
 @MainActor
 class CategoryTableViewController: UITableViewController {
     // MARK: - Properties
-    let menuController = MenuController()
     var categories: [Category] = []
     
+    
+    // MARK: - Views
     override func viewDidLoad() {
         super.viewDidLoad()
 
         Task{
             do{
-                let categories = try await menuController.featchCategoris()
+                let categories = try await MenuController.shared.featchCategoris()
                 updateUI(with: categories)
                 
             }catch{
                 displayError(error, title: "Faild to Featch Categories")
             }
         }
+    }
+    
+    // MARK: IBActions
+    
+    @IBSegueAction func showMenu(_ coder: NSCoder, sender: UITableViewCell?) -> MenuTableViewController? {
+        guard let cell = sender, let indexPath = tableView.indexPath(for: cell) else{return nil}
+        
+        let category = categories[indexPath.row]
+        
+        return MenuTableViewController(coder: coder, category: category)
     }
     
     // MARK: Helper Functions
@@ -40,6 +51,8 @@ class CategoryTableViewController: UITableViewController {
         alert.addAction(UIAlertAction(title: "Dismiss", style: .default))
         present(alert, animated: true)
     }
+    
+    
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {

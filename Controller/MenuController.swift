@@ -14,6 +14,8 @@ enum MenuControllerError: Error, LocalizedError {
 
 }
 class MenuController {
+    static let shared = MenuController()
+    
     let baseURL = URL(string: "http://localhost:8080/")!
     
     func featchCategoris() async throws -> [String]{
