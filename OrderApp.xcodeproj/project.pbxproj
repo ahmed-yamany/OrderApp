@@ -12,6 +12,8 @@
 		730241A128A0D3F9004BAF87 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7302419F28A0D3F9004BAF87 /* Main.storyboard */; };
 		730241A328A0D3FB004BAF87 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 730241A228A0D3FB004BAF87 /* Assets.xcassets */; };
 		730241A628A0D3FB004BAF87 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 730241A428A0D3FB004BAF87 /* LaunchScreen.storyboard */; };
+		730770F728AD611B00F133C5 /* OrderConfirmationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730770F628AD611B00F133C5 /* OrderConfirmationViewController.swift */; };
+		7373689528AFCA4700AC6F58 /* MenyItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7373689428AFCA4700AC6F58 /* MenyItemCell.swift */; };
 		73CEDB3A28AA6050003BDB6A /* CategoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73CEDB3928AA6050003BDB6A /* CategoryTableViewController.swift */; };
 		73CEDB3C28AA605F003BDB6A /* MenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73CEDB3B28AA605F003BDB6A /* MenuTableViewController.swift */; };
 		73CEDB3F28AA6073003BDB6A /* OrderTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73CEDB3E28AA6073003BDB6A /* OrderTableViewController.swift */; };
@@ -29,6 +31,8 @@
 		730241A228A0D3FB004BAF87 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		730241A528A0D3FB004BAF87 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		730241A728A0D3FB004BAF87 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		730770F628AD611B00F133C5 /* OrderConfirmationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderConfirmationViewController.swift; sourceTree = "<group>"; };
+		7373689428AFCA4700AC6F58 /* MenyItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenyItemCell.swift; sourceTree = "<group>"; };
 		73CEDB3928AA6050003BDB6A /* CategoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewController.swift; sourceTree = "<group>"; };
 		73CEDB3B28AA605F003BDB6A /* MenuTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTableViewController.swift; sourceTree = "<group>"; };
 		73CEDB3E28AA6073003BDB6A /* OrderTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderTableViewController.swift; sourceTree = "<group>"; };
@@ -87,6 +91,7 @@
 				73CEDB3E28AA6073003BDB6A /* OrderTableViewController.swift */,
 				73CEDB4028AA6203003BDB6A /* MenuItemDetailViewController.swift */,
 				73CEDB4628AA6A22003BDB6A /* MenuController.swift */,
+				730770F628AD611B00F133C5 /* OrderConfirmationViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -104,6 +109,7 @@
 			isa = PBXGroup;
 			children = (
 				73CEDB3828AA5FE0003BDB6A /* StoryBoards */,
+				7373689428AFCA4700AC6F58 /* MenyItemCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -188,11 +194,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				730770F728AD611B00F133C5 /* OrderConfirmationViewController.swift in Sources */,
 				73CEDB4328AA64DA003BDB6A /* MenuItem.swift in Sources */,
 				73CEDB4728AA6A22003BDB6A /* MenuController.swift in Sources */,
 				73CEDB3C28AA605F003BDB6A /* MenuTableViewController.swift in Sources */,
 				73CEDB4528AA68B8003BDB6A /* Order.swift in Sources */,
 				73CEDB4128AA6203003BDB6A /* MenuItemDetailViewController.swift in Sources */,
+				7373689528AFCA4700AC6F58 /* MenyItemCell.swift in Sources */,
 				73CEDB3F28AA6073003BDB6A /* OrderTableViewController.swift in Sources */,
 				7302419A28A0D3F9004BAF87 /* AppDelegate.swift in Sources */,
 				7302419C28A0D3F9004BAF87 /* SceneDelegate.swift in Sources */,

@@ -52,6 +52,11 @@ class MenuItemDetailViewController: UIViewController {
         nameLbl.text = menuItem.name
         priceLbl.text = menuItem.price.formatted(.currency(code: "egp"))
         detailsLbl.text = menuItem.detailText
+        Task{
+            if let image = try? await MenuController.shared.fetchImage(from: menuItem.imageURL){
+                imageView.image = image
+            }
+        }
     }
     
 

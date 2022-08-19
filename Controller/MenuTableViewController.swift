@@ -12,7 +12,7 @@ class MenuTableViewController: UITableViewController {
     let category: String
     
     var menuItems: [MenuItem] = []
-    
+    var imageLoadedTask: [IndexPath: Task<Void, Never>] = [:]
     // MARK: - constractors
     init?(coder: NSCoder, category: String) {
         self.category = category
@@ -39,6 +39,11 @@ class MenuTableViewController: UITableViewController {
             }
         }
 
+    }
+    override func viewDidDisappear(_ animated: Bool) {
+        imageLoadedTask.forEach { key, value in
+            value.cancel()
+        }
     }
     
     // MARK: - IBActions
@@ -89,12 +94,27 @@ class MenuTableViewController: UITableViewController {
     func configure(_ cell: UITableViewCell, forItemAt indexPath: IndexPath){
         
         let menuItem = menuItems[indexPath.row]
-        var content = cell.defaultContentConfiguration()
-        content.text = menuItem.name
-        content.secondaryText = menuItem.price.formatted(.currency(code: "egp"))
-        cell.contentConfiguration = content
+        
+        guard let cell = cell as? MenuItemCell else{return}
+        
+        cell.itemName = menuItem.name
+        cell.price = menuItem.price
+        
+        
+        imageLoadedTask[indexPath] = Task {
+                if let image = try? await MenuController.shared.fetchImage(from: menuItem.imageURL) {
+                    if let currentIndexPath = self.tableView.indexPath(for:cell), currentIndexPath == indexPath {
+                        cell.image = image
+                    }
+                }
+            imageLoadedTask[indexPath] = nil
+        }
     }
 
+    override func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        imageLoadedTask[indexPath]?.cancel()
+    }
+    
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
